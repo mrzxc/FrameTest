@@ -16,16 +16,17 @@ class router
     }
 
     // set controller
-    private function set_class ()
+    private function set_class()
     {
-        if (isset($this->url->url_arr[0])) {
-            $this->class = $this->url->url_arr[0];
+        if (!empty($this->url->get_behavior('controller'))) {
+            $this->class = $this->url->get_behavior('controller');
         }
     }
-    private function set_method ()
+
+    private function set_method()
     {
-        if (isset($this->url->url_arr[1])) {
-            $this->method = $this->url->url_arr[1];
+        if (!empty($this->url->get_behavior('method'))) {
+            $this->method = $this->url->get_behavior('method');
         }
     }
 
